@@ -50,7 +50,6 @@ const UserWidget = ({ userId, picturePath }) => {
 		impressions,
 		friends,
 	} = user;
-  console.log("picturePath",picturePath)
 	return (
 		<WidgetWrapper>
 			{/* FIRST ROW */}
