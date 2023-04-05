@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { useState } from "react";
 import {
   Box,
@@ -21,27 +22,31 @@ import {
   Close,
 } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
-import { setMode, setLogout } from "state";
+import { setMode, setLogout } from "../../state";
 import { useNavigate } from "react-router-dom";
-import FlexBetween from "components/FlexBetween";
+import FlexBetween from "../../components/FlexBetween";
 
 const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state:any) => state.user);
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
 
   const theme = useTheme();
+   //@ts-ignore
   const neutralLight = theme.palette.neutral.light;
+   //@ts-ignore
   const dark = theme.palette.neutral.dark;
   const background = theme.palette.background.default;
   const primaryLight = theme.palette.primary.light;
+  //@ts-ignore
   const alt = theme.palette.background.alt;
 
   const fullName = `${user.firstName} ${user.lastName}`;
 
   return (
+     //@ts-ignore
     <FlexBetween padding="1rem 6%" backgroundColor={alt}>
       <FlexBetween gap="1.75rem">
         <Typography
@@ -60,6 +65,7 @@ const Navbar = () => {
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween
+           //@ts-ignore
             backgroundColor={neutralLight}
             borderRadius="9px"
             gap="3rem"
@@ -86,6 +92,7 @@ const Navbar = () => {
           <Message sx={{ fontSize: "25px" }} />
           <Notifications sx={{ fontSize: "25px" }} />
           <Help sx={{ fontSize: "25px" }} />
+         
           <FormControl variant="standard" value={fullName}>
             <Select
               value={fullName}
