@@ -61,7 +61,7 @@ const Navbar = () => {
             },
           }}
         >
-          Sociopedia
+          PostPlus
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween
